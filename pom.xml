@@ -8,10 +8,10 @@
         <version>2.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>Ciclo3</groupId>
-    <artifactId>Ciclo3</artifactId>
+    <groupId>Back</groupId>
+    <artifactId>Back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Ciclo3</name>
+    <name>Back</name>
     <description>Project with Spring Boot</description>
     <properties>
         <java.version>11</java.version>
