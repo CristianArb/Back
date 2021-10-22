@@ -6,6 +6,7 @@ package application.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  *
@@ -17,9 +18,11 @@ import javax.persistence.*;
 public class Score implements Serializable{
     
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY) 
+    @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
+    @Column( length = 1)
     private Integer score;
+    @Column( length = 250)
     private String message;
     
     

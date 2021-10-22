@@ -6,7 +6,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,9 +17,9 @@ import javax.persistence.Table;
 public class Message implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    @Column(nullable = false, length = 250)
+    @Column( length = 250)
     private String messageText;
     
     @ManyToOne
@@ -32,38 +32,61 @@ public class Message implements Serializable {
     @JsonIgnoreProperties({"messages", "reservations", "client"})
     private Client client;
 
-    public Integer getIdMessage() {
+    /**
+     * @return the id
+     */
+    public Integer getId() {
         return id;
     }
 
-    public void setIdMessage(Integer id) {
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
         this.id = id;
     }
 
+    /**
+     * @return the messageText
+     */
     public String getMessageText() {
         return messageText;
     }
 
+    /**
+     * @param messageText the messageText to set
+     */
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
 
+    /**
+     * @return the quadbike
+     */
     public Quadbike getQuadbike() {
         return quadbike;
     }
 
-    public void setBike(Quadbike quadbike) {
+    /**
+     * @param quadbike the quadbike to set
+     */
+    public void setQuadbike(Quadbike quadbike) {
         this.quadbike = quadbike;
     }
 
+    /**
+     * @return the client
+     */
     public Client getClient() {
         return client;
     }
 
+    /**
+     * @param client the client to set
+     */
     public void setClient(Client client) {
         this.client = client;
     }
     
-    
-    
+       
 }

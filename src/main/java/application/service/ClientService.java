@@ -39,7 +39,7 @@ public class ClientService {
         
         else{
             
-            Optional<Client> e= clientRepository.getCliente(client.getId());
+            var e= clientRepository.getCliente(client.getId());
             
             if(e.isEmpty()){
                 
@@ -59,7 +59,7 @@ public class ClientService {
         
         if(client.getId()!=null){
             
-            Optional<Client> e= clientRepository.getCliente(client.getId());
+            var e= clientRepository.getCliente(client.getId());
             
             if(!e.isEmpty()){
                 
@@ -99,7 +99,7 @@ public class ClientService {
 
     public boolean deleteClient(int clientId) {
         
-        Boolean aBoolean = getClient(clientId).map(client -> {
+        var aBoolean = getClient(clientId).map(client -> {
             
             clientRepository.delete(client);
             

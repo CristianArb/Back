@@ -31,7 +31,7 @@ public class ScoreService {
         }
         else{
             
-            Optional<Score> paux=scoreRepository.getScore(
+            var paux=scoreRepository.getScore(
                     score.getId()
             );
             

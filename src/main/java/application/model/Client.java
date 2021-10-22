@@ -4,11 +4,11 @@ package application.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
+import static javax.persistence.CascadeType.PERSIST;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,22 +18,22 @@ import javax.persistence.Table;
 public class Client implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    @Column(nullable = false, length = 45)
+    @Column(length = 45)
     private String email;
-    @Column(nullable = false, length = 45)
+    @Column(length = 45)
     private String password;
-    @Column(nullable = false, length = 250)
+    @Column(length = 250)
     private String name;
-    @Column(nullable = false, length = 2)
+    @Column(length = 2)
     private Integer age;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="client")
+    @OneToMany(cascade = {PERSIST},mappedBy="client")
     @JsonIgnoreProperties({"client"})
     private List<Reservation> reservations;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    @OneToMany(cascade = {PERSIST},mappedBy = "client")
     @JsonIgnoreProperties({"client"})
     private List<Message> messages;
 

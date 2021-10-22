@@ -10,28 +10,30 @@ import java.util.List;
 import java.util.Optional;
 import application.model.Quadbike;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import application.service.QuadbikeService;
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 /**
  *
  * @author cterr
  */
 @RequestMapping("/api/Quadbike")
-@CrossOrigin(origins = "*", methods= {
-    RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE
-}, allowedHeaders = "*")
+@CrossOrigin(origins = "*", methods= { GET, POST, PUT, DELETE}, allowedHeaders = "*")
 @RestController
 public class QuadbikeController {
     
@@ -63,7 +65,7 @@ public class QuadbikeController {
 
     
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Quadbike save(@RequestBody Quadbike quadbike){
         
         return quadbikeService.save(quadbike);
@@ -71,7 +73,7 @@ public class QuadbikeController {
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Quadbike update(@RequestBody Quadbike quadbike) {
         
         return quadbikeService.update(quadbike);
@@ -79,7 +81,7 @@ public class QuadbikeController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(NO_CONTENT)
     public boolean delete(@PathVariable("id") int idQuadbike) {
         
         return quadbikeService.deleteQuadbike( idQuadbike);

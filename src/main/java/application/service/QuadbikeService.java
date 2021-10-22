@@ -45,7 +45,7 @@ public class QuadbikeService {
         
         else{
         
-            Optional<Quadbike> quadbikeAux= quadbikeRepository.getQuadbike(
+            var quadbikeAux= quadbikeRepository.getQuadbike(
                     quadbike.getId()
             );
             
@@ -67,7 +67,7 @@ public class QuadbikeService {
         
         if(quadbike.getId()!=null){
             
-            Optional<Quadbike> e=quadbikeRepository.getQuadbike(quadbike.getId());
+            var e=quadbikeRepository.getQuadbike(quadbike.getId());
             
             if(!e.isEmpty()){
                 
@@ -124,7 +124,7 @@ public class QuadbikeService {
 
     public boolean deleteQuadbike(int idQuadbike) {
         
-        Boolean aBoolean = getQuadbike(idQuadbike).map(bike -> {            
+        var aBoolean = getQuadbike(idQuadbike).map(bike -> {            
             quadbikeRepository.delete(bike);     
             return true;            
         }).orElse(false);

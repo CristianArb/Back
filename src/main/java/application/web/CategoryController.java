@@ -9,10 +9,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
+import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 @RestController
 @RequestMapping("/api/Category")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods= {GET, POST, PUT, DELETE})
 public class CategoryController {
 
     @Autowired
@@ -33,7 +39,7 @@ public class CategoryController {
     }
 
     @PostMapping("/save")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Category save(@RequestBody Category category){
         
         return categoryService.save(category);
@@ -41,7 +47,7 @@ public class CategoryController {
     }
     
     @PutMapping("/update")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(CREATED)
     public Category update(@RequestBody Category category) {
         
         return categoryService.update(category);
@@ -49,7 +55,7 @@ public class CategoryController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(NO_CONTENT)
     public boolean delete(@PathVariable("id") int idCategory) {
         
         return categoryService.deleteCategory( idCategory);

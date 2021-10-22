@@ -32,7 +32,7 @@ public class ReservationService {
         }
         else{
             
-            Optional<Reservation> paux=reservationRepository.getReservation(
+            var paux=reservationRepository.getReservation(
                     reservation.getId()
             );
             
@@ -53,7 +53,7 @@ public class ReservationService {
         
         if(reservation.getId()!=null){
             
-            Optional<Reservation> e= reservationRepository.getReservation(reservation.getId());
+            var e= reservationRepository.getReservation(reservation.getId());
             
             if(!e.isEmpty()){
 
@@ -88,7 +88,7 @@ public class ReservationService {
 
     public boolean deleteReservation(int reservationId) {
         
-        Boolean aBoolean = getReservation(reservationId).map(reservation -> {          
+        var aBoolean = getReservation(reservationId).map(reservation -> {          
             reservationRepository.delete(reservation);
             return true;
         }).orElse(false);

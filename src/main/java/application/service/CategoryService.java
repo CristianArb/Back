@@ -26,48 +26,48 @@ public class CategoryService {
         
     }
 
-    public Category save(Category categoria){
+    public Category save(Category category){
         
-        if(categoria.getId()==null){
+        if(category.getId()==null){
             
-            return categoryRepository.save(categoria);
+            return categoryRepository.save(category);
             
         }
         
         else{
             
-            Optional<Category> paux=categoryRepository.getCategory(categoria.getId());
+            var paux=categoryRepository.getCategory(category.getId());
             
-            if(!paux.isPresent()){
+            if(paux.isEmpty()){
                 
-                return categoryRepository.save(categoria);
+                return categoryRepository.save(category);
                 
             }
             else{
                 
-                return categoria;
+                return category;
                 
             }
         }
     }
     
-    public Category update(Category categoria){
+    public Category update(Category category){
         
-        if(categoria.getId()!=null){
+        if(category.getId()!=null){
             
-            Optional<Category>g=categoryRepository.getCategory(categoria.getId());
+            var g=categoryRepository.getCategory(category.getId());
             
             if(!g.isEmpty()){
                 
-                if(categoria.getDescription()!=null){
+                if(category.getDescription()!=null){
                     
-                    g.get().setDescription(categoria.getDescription());
+                    g.get().setDescription(category.getDescription());
                     
                 }
                 
-                if(categoria.getName()!=null){
+                if(category.getName()!=null){
                     
-                    g.get().setName(categoria.getName());
+                    g.get().setName(category.getName());
                     
                 }
                 
@@ -75,12 +75,12 @@ public class CategoryService {
                 
             }
         }
-        return categoria;
+        return category;
     }
     
     public boolean deleteCategory(int categoriaId){
         
-        Boolean d=getCategory(categoriaId).map(categoria -> {
+        var d=getCategory(categoriaId).map(categoria -> {
             
             categoryRepository.delete(categoria);
             

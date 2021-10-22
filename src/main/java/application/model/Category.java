@@ -5,20 +5,22 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name="categoria")
 public class Category implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Integer id;
-    @Column(nullable = false, length = 45)
+    @Column( length = 45)
     private String name;
-    @Column(nullable = false, length = 250)
+    @Column( length = 250)
     private String description;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
+    @OneToMany(cascade = {PERSIST},mappedBy = "category")
     @JsonIgnoreProperties({"category"})
     private List<Quadbike> quadbikes;
 

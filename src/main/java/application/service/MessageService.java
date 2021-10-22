@@ -29,7 +29,7 @@ public class MessageService {
 
     public Message save(Message message){
         
-        if(message.getIdMessage()==null){
+        if(message.getId()==null){
             
             return messageRepository.save(message);
             
@@ -37,7 +37,7 @@ public class MessageService {
         
         else{
             
-            Optional<Message> e= messageRepository.getMessage(message.getIdMessage());
+            var e= messageRepository.getMessage(message.getId());
             
             if(e.isEmpty()){
                 
@@ -54,9 +54,9 @@ public class MessageService {
 
     public Message update(Message message){
         
-        if(message.getIdMessage()!=null){
+        if(message.getId()!=null){
             
-            Optional<Message> e= messageRepository.getMessage(message.getIdMessage());
+            var e= messageRepository.getMessage(message.getId());
             
             if(!e.isEmpty()){
                 
@@ -88,7 +88,7 @@ public class MessageService {
 
     public boolean deleteMessage(int messageId) {
         
-        Boolean aBoolean = getMessage(messageId).map(message -> {
+        var aBoolean = getMessage(messageId).map(message -> {
             
             messageRepository.delete(message);
     

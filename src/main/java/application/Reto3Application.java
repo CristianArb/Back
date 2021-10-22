@@ -1,6 +1,6 @@
 package application;
 
-import org.springframework.boot.SpringApplication;
+import static org.springframework.boot.SpringApplication.run;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -11,7 +11,7 @@ public class Reto3Application {
 
 	public static void main(String[] args) {
             
-		SpringApplication.run(Reto3Application.class, args);
+		run(Reto3Application.class, args);
                 
 	}
 

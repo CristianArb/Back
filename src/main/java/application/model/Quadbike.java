@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  *
@@ -19,16 +21,16 @@ public class Quadbike implements Serializable{//Para enviar datos y recibir
     //en 
     
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY) 
+    @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
     
-    @Column(nullable = false, length = 45)//Ajustar longitud
+    @Column( length = 45)//Ajustar longitud
     private String name;
-    @Column(nullable = false, length = 45)
+    @Column( length = 45)
     private String brand;
-    @Column(nullable = false, length = 4)    
+    @Column( length = 4)    
     private Integer year;
-    @Column(nullable = false, length = 250)
+    @Column( length = 250)
     private String description;
     
     @ManyToOne
@@ -36,11 +38,11 @@ public class Quadbike implements Serializable{//Para enviar datos y recibir
     @JsonIgnoreProperties({"quadbikes"})
     private Category category;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
+    @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike","client"})
     private List<Reservation> reservations;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
+    @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
  

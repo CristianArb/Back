@@ -1,7 +1,6 @@
 package application.repository;
 
 import application.model.Category;
-import application.model.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -29,7 +28,7 @@ public class CategoryRepository {
     
     public Category save(Category category){
         
-        return categoryCrudRepository.save(category);
+            return categoryCrudRepository.save(category);
         
     }
     

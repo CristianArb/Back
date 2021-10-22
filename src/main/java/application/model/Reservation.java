@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  *
@@ -19,7 +20,7 @@ public class Reservation implements Serializable{
 
      
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY) 
+    @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
     private Date startDate;
     private Date devolutionDate;
