@@ -11,37 +11,68 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- *
- * @author cterr
+ * Esta clase es un entity que se almacena con el nombre quadbike
+ * @author Grupo 0.
  */
-
 @Entity
 @Table(name="quadbike")
-public class Quadbike implements Serializable{//Para enviar datos y recibir
-    //en 
+public class Quadbike implements Serializable{
     
+    /**
+     * Atributo integer que actua como llave principal de la clase quadbike.
+     */
     @Id
     @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
     
-    @Column( length = 45)//Ajustar longitud
+    /**
+     * Atributo String que almacena el nombre de la cuatrimoto.
+     * Con una longitud de 45 caracteres.
+     */
+    @Column( length = 45)
     private String name;
+    
+    /**
+     * Atributo String que almacena la marca de la cuatrimoto.
+     * Longitud de 45 caracteres.
+     */
     @Column( length = 45)
     private String brand;
-    @Column( length = 4)    
+    
+    /**
+     * Atributo Integer que almacena el año de la cuatrimoto.
+     */ 
     private Integer year;
+    
+    /**
+     * Atributo String que almacena la descripcion de la cuatrimoto.
+     * Longitud de 250 caracteres.
+     */
     @Column( length = 250)
     private String description;
     
+    /**
+     * Atributo category que relaciona un entity category.
+     * La relación se da mediante la llave foranea id Category.
+     * La relacioón es de muchos a uno.
+     */
     @ManyToOne
     @JoinColumn(name="idCategory")
     @JsonIgnoreProperties({"quadbikes"})
     private Category category;
     
+    /**
+     * Atributo List<Reservation> que relaciona un entity reservations.
+     * La relación es de uno a muchos.
+     */
     @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike","client"})
     private List<Reservation> reservations;
     
+    /**
+     * Atributo List<Message> que relaciona un entity messages.
+     * La relación es de uno a muchos.
+     */
     @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
