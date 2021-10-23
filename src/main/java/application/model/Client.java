@@ -13,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Esta clase es un entity que se almacena con el nombre client
+ * @author Cristian Peña
+ */
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {

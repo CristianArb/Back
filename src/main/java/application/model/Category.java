@@ -8,8 +8,12 @@ import java.util.List;
 import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
+/**
+ * Esta clase es un entity que se almacena con el nombre Cateory
+ * @author Cristian Peña
+ */
 @Entity
-@Table(name="categoria")
+@Table(name="category")
 public class Category implements Serializable {
     
     @Id

@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Optional;
 import application.repository.crud.CategoryCrudRepository;
 
+/**
+ * Esta interface implementa el Repository
+ * @author cterr
+ */
 @Repository
 public class CategoryRepository {
     
