@@ -2,7 +2,15 @@ package application.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.*;
+import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+
 import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,7 +27,7 @@ public class Quadbike implements Serializable{
      */
     @Id
     @GeneratedValue( strategy = IDENTITY) 
-    private Integer id;
+    private Integer idQuadbike;
     
     /**
      * Atributo String que almacena el nombre de la cuatrimoto.
@@ -131,17 +139,17 @@ public class Quadbike implements Serializable{
     }
     
     /**
-     * @return the id
+     * @return the idQuadbike
      */
     public Integer getId() {
-        return id;
+        return idQuadbike;
     }
 
     /**
-     * @param id the id to set
+     * @param id the idQuadbike to set
      */
     public void setId(Integer id) {
-        this.id = id;
+        this.idQuadbike = id;
     }
 
     /**
