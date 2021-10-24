@@ -19,6 +19,7 @@ public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
+    
     @Column( length = 250)
     private String messageText;
     

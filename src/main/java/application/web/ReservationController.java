@@ -1,7 +1,6 @@
 package application.web;
 
 
-import application.model.Category;
 import application.model.Reservation;
 import application.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;

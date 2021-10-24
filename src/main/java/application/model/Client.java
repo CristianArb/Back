@@ -24,13 +24,16 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
+    
     @Column(length = 45)
     private String email;
+    
     @Column(length = 45)
     private String password;
+    
     @Column(length = 250)
     private String name;
-    @Column(length = 2)
+    
     private Integer age;
     
     @OneToMany(cascade = {PERSIST},mappedBy="client")

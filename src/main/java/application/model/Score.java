@@ -9,7 +9,7 @@ import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- *
+ * Esta clase es un entity que se almacena con el nombre score
  * @author cterr
  */
 
@@ -20,8 +20,9 @@ public class Score implements Serializable{
     @Id
     @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
-    @Column( length = 1)
+    
     private Integer score;
+    
     @Column( length = 250)
     private String message;
     

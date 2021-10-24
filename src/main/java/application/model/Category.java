@@ -9,8 +9,8 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Esta clase es un entity que se almacena con el nombre Cateory
- * @author Cristian Peña
+ * Esta clase es un entity que se almacena con el nombre cateory
+ * @authors Grupo 0.
  */
 @Entity
 @Table(name="category")
@@ -19,8 +19,10 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
+    
     @Column( length = 45)
     private String name;
+    
     @Column( length = 250)
     private String description;
 
