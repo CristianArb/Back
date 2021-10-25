@@ -146,10 +146,10 @@ public class Quadbike implements Serializable{
     }
 
     /**
-     * @param id the idQuadbike to set
+     * @param idQuadbike the idQuadbike to set
      */
-    public void setId(Integer id) {
-        this.idQuadbike = id;
+    public void setId(Integer idQuadbike) {
+        this.idQuadbike = idQuadbike;
     }
 
     /**
