@@ -37,14 +37,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 @RestController
 public class QuadbikeController {
     
-    @RequestMapping("/api")
-    public String welcomePage() {
-        
-		return "Bienvenido a la api";
-                
-	}
-           
-    
     @Autowired
     private QuadbikeService quadbikeService;
     

@@ -18,12 +18,14 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Score implements Serializable{
     
     @Id
+    @Column(name = "id")
     @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
     
+    @Column(name = "score",precision = 1, scale = 0)
     private Integer score;
     
-    @Column( length = 250)
+    @Column(name = "message", length = 250)
     private String message;
     
     

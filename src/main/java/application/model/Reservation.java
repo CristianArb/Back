@@ -20,10 +20,17 @@ public class Reservation implements Serializable{
 
      
     @Id
+    @Column(name = "id")
     @GeneratedValue( strategy = IDENTITY) 
     private Integer id;
+    
+    @Column(name = "startDate")
     private Date startDate;
+    
+    @Column(name = "devolutionDate")
     private Date devolutionDate;
+    
+    @Column(name = "status")
     private String status = "created";
     
     @ManyToOne

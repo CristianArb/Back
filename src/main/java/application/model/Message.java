@@ -17,19 +17,20 @@ import javax.persistence.Table;
 public class Message implements Serializable {
     
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     
-    @Column( length = 250)
+    @Column(name = "messageText", length = 250)
     private String messageText;
     
     @ManyToOne
-    @JoinColumn(name="idQuadbike")
+    @JoinColumn(name="quadbike")
     @JsonIgnoreProperties({"messages", "reservations", "client"})
     private Quadbike quadbike;
 
     @ManyToOne
-    @JoinColumn(name="idClient")
+    @JoinColumn(name="client")
     @JsonIgnoreProperties({"messages", "reservations", "client"})
     private Client client;
 

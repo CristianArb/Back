@@ -22,18 +22,20 @@ import javax.persistence.Table;
 public class Client implements Serializable {
     
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     
-    @Column(length = 45)
+    @Column(name = "email", length = 45)
     private String email;
     
-    @Column(length = 45)
+    @Column(name = "password", length = 45)
     private String password;
     
-    @Column(length = 250)
+    @Column(name = "name", length = 250)
     private String name;
     
+    @Column(name = "age",precision = 2, scale = 0)
     private Integer age;
     
     @OneToMany(cascade = {PERSIST},mappedBy="client")

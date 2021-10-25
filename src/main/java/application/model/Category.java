@@ -17,13 +17,14 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Category implements Serializable {
     
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = IDENTITY)
     private Integer id;
     
-    @Column( length = 45)
+    @Column(name = "name", length = 45)
     private String name;
     
-    @Column( length = 250)
+    @Column(name = "description", length = 250)
     private String description;
 
     @OneToMany(cascade = {PERSIST},mappedBy = "category")

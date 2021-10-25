@@ -26,6 +26,7 @@ public class Quadbike implements Serializable{
      * Atributo integer que actua como llave principal de la clase quadbike.
      */
     @Id
+    @Column(name = "id")
     @GeneratedValue( strategy = IDENTITY) 
     private Integer idQuadbike;
     
@@ -33,26 +34,27 @@ public class Quadbike implements Serializable{
      * Atributo String que almacena el nombre de la cuatrimoto.
      * Con una longitud de 45 caracteres.
      */
-    @Column( length = 45)
+    @Column(name = "name", length = 45)
     private String name;
     
     /**
      * Atributo String que almacena la marca de la cuatrimoto.
      * Longitud de 45 caracteres.
      */
-    @Column( length = 45)
+    @Column(name = "brand", length = 45)
     private String brand;
     
     /**
      * Atributo Integer que almacena el año de la cuatrimoto.
      */ 
+    @Column(name = "year", precision = 4, scale = 0)
     private Integer year;
     
     /**
      * Atributo String que almacena la descripcion de la cuatrimoto.
      * Longitud de 250 caracteres.
      */
-    @Column( length = 250)
+    @Column(name = "description", length = 250)
     private String description;
     
     /**
