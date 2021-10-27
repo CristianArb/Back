@@ -30,9 +30,9 @@ public class Client implements Serializable {
      * Este atributo corresponde a la PK de la tabla Client
      */
     @Id
-    @Column(name = "id")
+    @Column(name = "idClient")
     @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    private Integer idClient;
 
     /**
      * Este atributo corresponde al email de cada cliente y a la columna email
@@ -91,8 +91,8 @@ public class Client implements Serializable {
      * Método get que devuelve el valor del id del cliente
      * @return El id del cliente
      */
-    public Integer getId() {
-        return id;
+    public Integer getIdClient() {
+        return idClient;
     }
 
     /**
@@ -100,8 +100,8 @@ public class Client implements Serializable {
      * Método set para modificar el id del cliente
      * @param id El id del cliente
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer idClient) {
+        this.idClient = idClient;
     }
 
     /**
