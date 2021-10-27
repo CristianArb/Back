@@ -63,7 +63,7 @@ public class ClientService {
      */
     public Client save(Client client){
         
-        if(client.getId()==null){
+        if(client.getIdClient()==null){
             
             return clientRepository.save(client);
             
@@ -71,7 +71,7 @@ public class ClientService {
         
         else{
             
-            var e= clientRepository.getCliente(client.getId());
+            var e= clientRepository.getCliente(client.getIdClient());
             
             if(e.isEmpty()){
                 
@@ -98,9 +98,9 @@ public class ClientService {
      */
     public Client update(Client client){
         
-        if(client.getId()!=null){
+        if(client.getIdClient()!=null){
             
-            var e= clientRepository.getCliente(client.getId());
+            var e= clientRepository.getCliente(client.getIdClient());
             
             if(!e.isEmpty()){
                 

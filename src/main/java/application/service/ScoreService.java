@@ -24,7 +24,7 @@ public class ScoreService {
 
     public Score save(Score score){
         
-        if(score.getId()==null){
+        if(score.getIdScore()==null){
             
             return scoreRepository.save(score);
             
@@ -32,7 +32,7 @@ public class ScoreService {
         else{
             
             var paux=scoreRepository.getScore(
-                    score.getId()
+                    score.getIdScore()
             );
             
             if(!paux.isPresent()){
