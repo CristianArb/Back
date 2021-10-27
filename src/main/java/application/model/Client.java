@@ -25,9 +25,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
+    
+    /**
+     * Client()
+     * Constructor vacio de la clase Client.
+     */
+    public Client() {
+    }
 
     /**
-     * Este atributo corresponde a la PK de la tabla Client
+     * Este atributo corresponde a la PK de la tabla Client.
      */
     @Id
     @Column(name = "idClient")
@@ -36,28 +43,28 @@ public class Client implements Serializable {
 
     /**
      * Este atributo corresponde al email de cada cliente y a la columna email
-     * de la tabla Client
+     * de la tabla Client.
      */
     @Column(name = "email", length = 45)
     private String email;
 
     /**
      * Este atrubuto corresponde al password de cada cliente y a la columna
-     * password de la tabla Client
+     * password de la tabla Client.
      */
     @Column(name = "password", length = 45)
     private String password;
 
     /**
      * Este atrubuto corresponde al nombre de cada cliente y a la columna name
-     * de la tabla Client
+     * de la tabla Client.
      */
     @Column(name = "name", length = 250)
     private String name;
 
     /**
      * Este atrubuto corresponde a la edad de cada cliente y a la columna age de
-     * la tabla Client
+     * la tabla Client.
      */
     @Column(name = "age", precision = 2, scale = 0)
     private Integer age;
@@ -80,13 +87,6 @@ public class Client implements Serializable {
     private List<Message> messages;
 
     /**
-     * Client()
-     * Constructor vacio de la clase Client
-     */
-    public Client() {
-    }
-
-    /**
      * getId()
      * Método get que devuelve el valor del id del cliente
      * @return El id del cliente
@@ -98,7 +98,7 @@ public class Client implements Serializable {
     /**
      * setId(Integer id)
      * Método set para modificar el id del cliente
-     * @param id El id del cliente
+     * @param idClient El id del cliente
      */
     public void setId(Integer idClient) {
         this.idClient = idClient;

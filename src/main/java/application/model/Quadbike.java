@@ -15,7 +15,7 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Category
+ * Quadbike
  * Esta clase implementa FirstCode 
  * Es un entity que se almacena con el nombre <H2>quadbike</H2> en la base de
  * datos Contiene los atributos y se maneja un autoincremento para idCategory
@@ -27,6 +27,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name="quadbike")
 public class Quadbike implements Serializable{
+    
+    /**
+     * Quadbike()
+     * Constructor vacio de la clase Quadbike.
+     */
+    public Quadbike() {
+    }
     
     /**
      * Atributo integer que actua como llave principal de la clase quadbike.
@@ -88,12 +95,6 @@ public class Quadbike implements Serializable{
     @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
-
-    /**
-     * Constructor vacio de la clase Quadbike.
-     */
-    public Quadbike() {
-    }
 
     /**
      * getIdQuadbike()
