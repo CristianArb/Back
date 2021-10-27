@@ -15,7 +15,7 @@ import javax.persistence.Table;
 /**
  * Client
  * Esta clase implementa FirstCode
- * Es un entity que se almacena con el nombre <H2>Client</H2> en la base de
+ * Es un entity que se almacena con el nombre <H2>client</H2> en la base de
  * datos Contiene los atributos y se maneja un autoincremento para idcliente
  *
  * @since 2021-10-25

@@ -15,8 +15,14 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Esta clase es un entity que se almacena con el nombre quadbike
- * @author Grupo 0.
+ * Category
+ * Esta clase implementa FirstCode 
+ * Es un entity que se almacena con el nombre <H2>quadbike</H2> en la base de
+ * datos Contiene los atributos y se maneja un autoincremento para idCategory
+ *
+ * @since 2021-10-27
+ * @version 1.0
+ * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
  */
 @Entity
 @Table(name="quadbike")
@@ -68,7 +74,7 @@ public class Quadbike implements Serializable{
     private Category category;
     
     /**
-     * Atributo List<Reservation> que relaciona un entity reservations.
+     * Atributo List"<"Reservation">" que relaciona un entity reservations.
      * La relación es de uno a muchos.
      */
     @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
@@ -76,125 +82,162 @@ public class Quadbike implements Serializable{
     private List<Reservation> reservations;
     
     /**
-     * Atributo List<Message> que relaciona un entity messages.
+     * Atributo List"<"Message">" que relaciona un entity messages.
      * La relación es de uno a muchos.
      */
     @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
- 
+
     /**
-     * @return the messages
+     * Constructor vacio de la clase Quadbike.
      */
-    public List<Message> getMessages() {
-        return messages;
+    public Quadbike() {
     }
 
     /**
-     * @param messages the messages to set
+     * getIdQuadbike()
+     * Método get que devuelve el valor del id de la cuatrimoto
+     * @return El id de la cuatrimoto
      */
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
-    }
-
-    /**
-     * @return the reservations
-     */
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    /**
-     * @param reservations the reservations to set
-     */
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-    
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     * @param description the description to set
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }  
-    
-    
-    /**
-     * @return the category
-     */
-    public Category getCategory() {
-        return category;
-    }
-
-    /**
-     * @param category the category to set
-     */
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-    
-    /**
-     * @return the idQuadbike
-     */
-    public Integer getId() {
+    public Integer getIdQuadbike() {
         return idQuadbike;
     }
 
     /**
-     * @param idQuadbike the idQuadbike to set
+     * setIdQuadbike(Integer idQuadbike)
+     * Método set para modificar el id de la cuatrimoto
+     * @param idQuadbike El id de la cuatrimoto
      */
-    public void setId(Integer idQuadbike) {
+    public void setIdQuadbike(Integer idQuadbike) {
         this.idQuadbike = idQuadbike;
     }
 
     /**
-     * @return the brand
-     */
-    public String getBrand() {
-        return brand;
-    }
-
-    /**
-     * @param brand the brand to set
-     */
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    /**
-     * @return the model
-     */
-    public Integer getYear() {
-        return year;
-    }
-
-    /**
-     * @param year the model to set
-     */
-    public void setYear(Integer year) {
-        this.year = year;
-    }
-
-    /**
-     * @return the name
+     * getName()
+     * Método get que devuelve el nombre de la cuatrimoto
+     * @return El nombre de la cuatrimoto
      */
     public String getName() {
         return name;
     }
 
     /**
-     * @param name the name to set
+     * setName(String name)
+     * Método set para modificar el nombre de la cuatrimoto
+     * @param name El nombre de la cuatrimoto
      */
     public void setName(String name) {
         this.name = name;
     }
+
+    /**
+     * getBrand()
+     * Método get que devuelve la marca de la cuatrimoto
+     * @return La marca de la cuatrimoto
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * setBrand(String brand)
+     * Método set para modificar la marca de la cuatrimoto
+     * @param brand La marca de la cuatrimoto
+     */
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    /**
+     * getYear()
+     * Método get que devuelve el año de la cuatrimoto
+     * @return El año de la cuatrimoto
+     */
+    public Integer getYear() {
+        return year;
+    }
+
+    /**
+     * setYear(Integer year)
+     * Método set para modificar el año de la cuatrimoto
+     * @param year El año de la cuatrimoto
+     */
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    /**
+     * getDescription()
+     * Método get que devuelve la descripción de la cuatrimoto
+     * @return La descripción de la cuatrimoto
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * setDescription(String description)
+     * Método set para modificar la descripción de la cuatrimoto
+     * @param description La descipción de la cuatrimoto
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    /**
+     * getCategory()
+     * Método get que devuelve la categoria de la cuatrimoto
+     * @return La categoria de la cuatrimoto
+     */
+    public Category getCategory() {
+        return category;
+    }
+
+    /**
+     * setCategory(Category category)
+     * Método set para modificar la categoria de la cuatrimoto
+     * @param category La categoria de la cuatrimoto
+     */
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    /**
+     * getReservations()
+     * Método get que devuelve una lista con las reservaciones de la cuatrimoto
+     * @return Las reservaciones de la cuatrimoto
+     */
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    /**
+     * setReservations(List"<"Reservation">" reservations)
+     * Método set para modificar la lista de reservaciones de la cuatrimoto
+     * @param reservations Lista de reservaciones de la cuatrimoto
+     */
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    /**
+     * getMessages()
+     * Método get que devuelve una lista con los mensajes de la cuatrimoto
+     * @return Los mensajes de la cuatrimoto
+     */
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    /**
+     * setMessages(List"<"Message">" messages)
+     * Método set para modificar la lista de mensajes de la cuatrimoto
+     * @param messages Lista de mensajes de la cuatrimoto
+     */
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+    
+    
 }
-
-

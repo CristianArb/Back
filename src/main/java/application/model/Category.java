@@ -10,7 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 /**
  * Category
  * Esta clase implementa FirstCode 
- * Es un entity que se almacena con el nombre <H2>Category</H2> en la base de
+ * Es un entity que se almacena con el nombre <H2>category</H2> en la base de
  * datos Contiene los atributos y se maneja un autoincremento para idCategory
  *
  * @since 2021-10-25

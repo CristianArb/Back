@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package application.web;
 
 
@@ -29,25 +24,48 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 /**
- *
- * @author cterr
+ * QuadbikeController
+ * Esta clase es de tipo controller
+ * Maneja las peticiones http que se crean desde el Front-end respecto a la
+ * tabla cuatrimoto y provee al QuadbikeService de los insumos necesarios para
+ * realizar sus operaciones
+ * 
+ * @since 2021-10-27
+ * @version 1.0
+ * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
  */
 @RequestMapping("/api/Quadbike")
 @CrossOrigin(origins = "*", methods= { GET, POST, PUT, DELETE}, allowedHeaders = "*")
 @RestController
 public class QuadbikeController {
     
+    /**
+     * Instancia con @Autowired de la clase servicio QuadbikeService
+     */
     @Autowired
     private QuadbikeService quadbikeService;
     
+    /**
+     * getAll()
+     * Método que devuelve todas las categorias guardadas en la base de datos a
+     * traves de una petición GET
+     * @return Lista con todas las categorias
+     */
     @GetMapping("/all")
-    public List<Quadbike> getPapelerias(){
+    public List<Quadbike> getAll(){
         
         return quadbikeService.getAll();
         
     }
     
-    
+    /**
+     * getQuadbike(@PathVariable("id") int id)
+     * Método que busca y devuelve una cuatrimoto especifica por el id en la
+     * base de datos a traves de una petición GET. Este id va en la ruta de la
+     * url
+     * @param id EL id de la cuatrimoto que se quiere buscar
+     * @return Cuatrimoto con el id ingresado
+     */
     @GetMapping("/{id}")
     public Optional<Quadbike> getQuadbike(@PathVariable("id") int id){
         
@@ -55,7 +73,13 @@ public class QuadbikeController {
         
     }
 
-    
+    /**
+     * save(@RequestBody Quadbike quadbike)
+     * Método que guarda y devuelve una cuatrimoto en la base de datos a traves
+     * de una petición POST
+     * @param quadbike La cuatrimoto que se va a guardar en formato JSON
+     * @return La cuatrimoto guardada
+     */
     @PostMapping("/save")
     @ResponseStatus(CREATED)
     public Quadbike save(@RequestBody Quadbike quadbike){
@@ -64,6 +88,13 @@ public class QuadbikeController {
         
     }
     
+    /**
+     * update(@RequestBody Quadbike quadbike)
+     * Método que actualiza y devuelve una cuatrimoto en la base de datos a
+     * traves de una petición PUT
+     * @param quadbike La cuatrimoto que se va a actualizar en formato JSON
+     * @return La cuatrimoto actualizada
+     */
     @PutMapping("/update")
     @ResponseStatus(CREATED)
     public Quadbike update(@RequestBody Quadbike quadbike) {
@@ -72,6 +103,14 @@ public class QuadbikeController {
         
     }
 
+    /**
+     * delete(@PathVariable("id") int idQuadbike)
+     * Método que borra una cuatrimoto por el id y devuelve un valor booleano
+     * dependiendo de si se borro con exito. El id va incluido en la ruta
+     * de la url
+     * @param idQuadbike El id de la cuatrimoto a borrar que va en la url
+     * @return True o false dependiendo de si se borro la cuatrimoto
+     */
     @DeleteMapping("/{id}")
     @ResponseStatus(NO_CONTENT)
     public boolean delete(@PathVariable("id") int idQuadbike) {
@@ -79,4 +118,5 @@ public class QuadbikeController {
         return quadbikeService.deleteQuadbike( idQuadbike);
         
     }
+    
 }
