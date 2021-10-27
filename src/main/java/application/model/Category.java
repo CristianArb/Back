@@ -1,133 +1,99 @@
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import static javax.persistence.CascadeType.PERSIST;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
- * Category
- * Esta clase implementa FirstCode 
- * Es un entity que se almacena con el nombre <H2>Category</H2> en la base de
- * datos Contiene los atributos y se maneja un autoincremento para idCategory
+ * Esta clase es un entity que se almacena con el nombre cateory
  *
- * @since 2021-10-25
- * @version 1.0
- * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
+ * @authors Grupo 0.
  */
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
 
-    /**
-     * Este atributo corresponde a la PK de la tabla Category
-     */
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "idCategory")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /**
-     * Este atributo corresponde al nombre de cada categoria y a la columna name
-     * de la tabla Category
-     */
     @Column(name = "name", length = 45)
     private String name;
 
-    /**
-     * Este atrubuto corresponde a la descripción de cada cliente y a la columna
-     * description de la tabla Category
-     */
     @Column(name = "description", length = 250)
     private String description;
 
-    /**
-     * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
-     * Category con Quadbike. Category posee relación de uno a muchos con
-     * Quadbike.
-     */
-    @OneToMany(cascade = {PERSIST}, mappedBy = "category")
-    @JsonIgnoreProperties({"category"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
+    @JsonIgnoreProperties("category")
     private List<Quadbike> quadbikes;
 
+    
+    
     /**
-     * Constructor vacio de la clase Category
-     */
-    public Category() {
-    }
-
-    /**
-     * getId()
-     * Método get que devuelve el valor del id de la categoria
-     * @return El id de la categoria
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * setId(Integer id)
-     * Método set para modificar el id de la categoria
-     * @param id El id de la categoria
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * getName()
-     * Método get que devuelve el nombre de la categoria
-     * @return El nombre de la categoria
+     * @return the name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * setName(String name)
-     * Método set para modificar el nombre de la categoria
-     * @param name El nombre de la categoria
+     * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * getDescription()
-     * Método get que devuelve la descripción de la categoria
-     * @return La descripción de la categoria
+     * @return the description
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * setDescription(String description)
-     * Método set para modificar la descripción de la categoria
-     * @param description La descripción de la categoria
+     * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     * getQuadbikes()
-     * Método get que devuelve una lista con las cuatrimotos de la categoria
-     * @return Las cuatrimotos de la categoria
+     * @return the quadbikes
      */
     public List<Quadbike> getQuadbikes() {
         return quadbikes;
     }
 
     /**
-     * setQuadbikes(List"<"Quadbike">" quadbikes)
-     * Método set para modificar la lista de cuatrimotos de la categoria
-     * @param quadbikes Lista de cuatrimotos de la categoria
+     * @param quadbikes the quadbikes to set
      */
     public void setQuadbikes(List<Quadbike> quadbikes) {
         this.quadbikes = quadbikes;
     }
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+   
 
 }

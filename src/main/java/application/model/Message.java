@@ -1,4 +1,3 @@
-
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -6,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,37 +14,37 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "message")
 public class Message implements Serializable {
-    
+
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
+    @Column(name = "idMessage")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idMessage;
     
     @Column(name = "messageText", length = 250)
     private String messageText;
-    
+
     @ManyToOne
-    @JoinColumn(name="quadbike")
-    @JsonIgnoreProperties({"messages", "reservations", "client"})
+    @JoinColumn(name = "id")
+    @JsonIgnoreProperties({"messages", "client", "reservations"})
     private Quadbike quadbike;
 
     @ManyToOne
-    @JoinColumn(name="client")
+    @JoinColumn(name = "idClient")
     @JsonIgnoreProperties({"messages", "reservations", "client"})
     private Client client;
 
     /**
-     * @return the id
+     * @return the idMessage
      */
-    public Integer getId() {
-        return id;
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
     /**
-     * @param id the id to set
+     * @param idMessage the idMessage to set
      */
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
     /**
@@ -89,6 +88,5 @@ public class Message implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
-    
-       
+
 }

@@ -3,212 +3,141 @@ package application.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
-import static javax.persistence.CascadeType.PERSIST;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Client
- * Esta clase implementa FirstCode
- * Es un entity que se almacena con el nombre <H2>Client</H2> en la base de
- * datos Contiene los atributos y se maneja un autoincremento para idcliente
+ * Esta clase es un entity que se almacena con el nombre client
  *
- * @since 2021-10-25
- * @version 1.0
- * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
+ * @author Cristian Peña
  */
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
 
-    /**
-     * Este atributo corresponde a la PK de la tabla Client
-     */
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = IDENTITY)
-    private Integer id;
-
-    /**
-     * Este atributo corresponde al email de cada cliente y a la columna email
-     * de la tabla Client
-     */
+    @Column(name = "idClient")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idClient;
     @Column(name = "email", length = 45)
     private String email;
-
-    /**
-     * Este atrubuto corresponde al password de cada cliente y a la columna
-     * password de la tabla Client
-     */
     @Column(name = "password", length = 45)
     private String password;
-
-    /**
-     * Este atrubuto corresponde al nombre de cada cliente y a la columna name
-     * de la tabla Client
-     */
     @Column(name = "name", length = 250)
     private String name;
-
-    /**
-     * Este atrubuto corresponde a la edad de cada cliente y a la columna age de
-     * la tabla Client
-     */
     @Column(name = "age", precision = 2, scale = 0)
     private Integer age;
 
-    /**
-     * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
-     * Client con Reservation. Client posee relación de uno a muchos con
-     * Reservation.
-     */
-    @OneToMany(cascade = {PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties({"client"})
-    private List<Reservation> reservations;
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    public List<Message> messages;
+
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
+    public List<Reservation> reservations;
 
     /**
-     * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
-     * Client con Message. Client posee relación de uno a muchos con Message.
+     * @return the idClient
      */
-    @OneToMany(cascade = {PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties({"client"})
-    private List<Message> messages;
-
-    /**
-     * Client()
-     * Constructor vacio de la clase Client
-     */
-    public Client() {
+    public Integer getIdClient() {
+        return idClient;
     }
 
     /**
-     * getId()
-     * Método get que devuelve el valor del id del cliente
-     * @return El id del cliente
+     * @param idClient the idClient to set
      */
-    public Integer getId() {
-        return id;
+    public void setIdClient(Integer idClient) {
+        this.idClient = idClient;
     }
 
     /**
-     * setId(Integer id)
-     * Método set para modificar el id del cliente
-     * @param id El id del cliente
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    /**
-     * getEmail()
-     * Método get que devuelve el email del cliente
-     * @return El email del cliente
+     * @return the email
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * setEmail(String email)
-     * Método set para modificar el email del cliente
-     * @param email El email del cliente
+     * @param email the email to set
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /**
-     * getPassword()
-     * Método get que devuelve el password del cliente
-     * @return El password del cliente
+     * @return the password
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * setPassword(String password)
-     * Método set para modificar el password del cliente
-     * @param password El password del cliente
+     * @param password the password to set
      */
     public void setPassword(String password) {
         this.password = password;
     }
 
     /**
-     * getName()
-     * Método get que devuelve el nombre del cliente
-     * @return El nombre del cliente
+     * @return the name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * setName(String name)
-     * Método set para modificar el nombre del cliente
-     * @param name El nombre del cliente
+     * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * getAge()
-     * Método get que devuelve la edad del cliente
-     * @return La edad del cliente
+     * @return the age
      */
     public Integer getAge() {
         return age;
     }
 
     /**
-     * setAge(Integer age)
-     * Método set para modificar la edad del cliente
-     * @param age La edad del cliente
+     * @param age the age to set
      */
     public void setAge(Integer age) {
         this.age = age;
     }
 
     /**
-     * getReservations()
-     * Método get que devuelve una lista con las reservaciones del cliente
-     * @return Las reservaciones del cliente
-     */
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    /**
-     * setReservations(List"<"Reservation">" reservations)
-     * Método set para modificar la lista de reservaciones del cliente
-     * @param reservations Lista de reservaciones del cliente
-     */
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-
-    /**
-     * getMessages()
-     * Método get que devuelve una lista con los mensajes del cliente
-     * @return Los mensajes del cliente
+     * @return the messages
      */
     public List<Message> getMessages() {
         return messages;
     }
 
     /**
-     * setMessages(List"<"Message">" messages)
-     * Método set para modificar la lista de reservaciones del cliente
-     * @param messages Lista de mensajes del cliente
+     * @param messages the messages to set
      */
     public void setMessages(List<Message> messages) {
         this.messages = messages;
     }
+
+    /**
+     * @return the reservations
+     */
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    /**
+     * @param reservations the reservations to set
+     */
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
 }

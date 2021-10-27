@@ -18,28 +18,28 @@ import application.repository.crud.ScoreCrudRepository;
  * @author cterr
  */
 @Repository
-public class ScoreRepository{
-    
+public class ScoreRepository {
+
     //Que hace esa etiqueta
     @Autowired
     private ScoreCrudRepository scoreCrudRepository;
-    
-    public List<Score> getAll(){
-    
+
+    public List<Score> getAll() {
+
         return (List<Score>) scoreCrudRepository.findAll();
-    
+
     }
-    
-    public Optional<Score> getScore(Integer id){
-    
+
+    public Optional<Score> getScore(Integer id) {
+
         return scoreCrudRepository.findById(id);
-    
+
     }
-    
-    public Score save(Score score){
-    
+
+    public Score save(Score score) {
+
         return scoreCrudRepository.save(score);
-    
+
     }
-  
+
 }
