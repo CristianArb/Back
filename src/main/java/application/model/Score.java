@@ -1,7 +1,4 @@
-/*
- * Crear base de datos MySQL y conectarlas, H2 me crea una base de datos
- * volatil mediante Spring JPA ideal para el desarrollo
- */
+
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

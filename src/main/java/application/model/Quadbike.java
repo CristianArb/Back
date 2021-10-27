@@ -29,6 +29,13 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Quadbike implements Serializable{
     
     /**
+     * Quadbike()
+     * Constructor vacio de la clase Quadbike.
+     */
+    public Quadbike() {
+    }
+    
+    /**
      * Atributo integer que actua como llave principal de la clase quadbike.
      */
     @Id
@@ -88,12 +95,6 @@ public class Quadbike implements Serializable{
     @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
-
-    /**
-     * Constructor vacio de la clase Quadbike.
-     */
-    public Quadbike() {
-    }
 
     /**
      * getIdQuadbike()

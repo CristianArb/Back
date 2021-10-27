@@ -20,9 +20,15 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
+    
+    /**
+     * Constructor vacio de la clase Category.
+     */
+    public Category() {
+    }
 
     /**
-     * Este atributo corresponde a la PK de la tabla Category
+     * Este atributo corresponde a la PK de la tabla Category.
      */
     @Id
     @Column(name = "id")
@@ -30,7 +36,7 @@ public class Category implements Serializable {
     private Integer id;
 
     /**
-     * Este atributo corresponde al nombre de cada categoria y a la columna name
+     * Este atributo corresponde al nombre de cada categoria y a la columna name.
      * de la tabla Category
      */
     @Column(name = "name", length = 45)
@@ -38,25 +44,20 @@ public class Category implements Serializable {
 
     /**
      * Este atrubuto corresponde a la descripción de cada cliente y a la columna
-     * description de la tabla Category
+     * description de la tabla Category.
      */
     @Column(name = "description", length = 250)
     private String description;
 
     /**
      * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
-     * Category con Quadbike. Category posee relación de uno a muchos con
-     * Quadbike.
+     * Category con Quadbike. 
+     * Category posee relación de uno a muchos con Quadbike.
      */
     @OneToMany(cascade = {PERSIST}, mappedBy = "category")
     @JsonIgnoreProperties({"category"})
     private List<Quadbike> quadbikes;
 
-    /**
-     * Constructor vacio de la clase Category
-     */
-    public Category() {
-    }
 
     /**
      * getId()

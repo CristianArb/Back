@@ -25,6 +25,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
+    
+    /**
+     * Client()
+     * Constructor vacio de la clase Client.
+     */
+    public Client() {
+    }
 
     /**
      * Este atributo corresponde a la PK de la tabla Client.
@@ -78,13 +85,6 @@ public class Client implements Serializable {
     @OneToMany(cascade = {PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties({"client"})
     private List<Message> messages;
-
-    /**
-     * Client()
-     * Constructor vacio de la clase Client
-     */
-    public Client() {
-    }
 
     /**
      * getId()
