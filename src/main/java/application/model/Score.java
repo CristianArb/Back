@@ -1,4 +1,3 @@
-
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,13 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
-<<<<<<< HEAD
  * Score
- * Esta clase implementa Firstcode 
- * Es un entity que se almacena con el nombre quadbike en la base de Datos
- * Contiene los atributos y se maneja un autoincremento para id
- * 
- * @since 2021-10-27
+ * Esta clase es un entity que se almacena con el nombre quadbike en la
+ * base de Datos Contiene los atributos y se maneja un autoincremento para id
+ *
+ * @since 27-10-2021
  * @version 1.0
  * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
  */
@@ -35,9 +32,6 @@ public class Score implements Serializable {
      */
     public Score() {
     }
-
-
-
 
     /**
      * Atributo integer que actua como llave principal de la clase Score.
@@ -65,12 +59,6 @@ public class Score implements Serializable {
      * Atributo Reservation que relaciona el entity Score con un entity reservation.
      * La relación se da mediante la llave foranea reservation.
      * La relacioón es de uno a uno.
-
-
-    /**
-     * Atributo Reservation que relaciona el entity Score con un entity
-     * reservation. La relación se da mediante la llave foranea reservation. La
-     * relacioón es de uno a uno.
      */
     @OneToOne
     @JoinColumn(name = "reservation")
@@ -78,8 +66,10 @@ public class Score implements Serializable {
     private Reservation reservation;
 
     /**
-     * getMessage()
-     * Método get que devuelve el String almacenada en el atributo message.
+     * getMessage() 
+     * Método get que devuelve el String almacenada en el atributo
+     * message.
+     *
      * @return the message
      */
     public String getMessage() {
@@ -87,9 +77,10 @@ public class Score implements Serializable {
     }
 
     /**
-     * setMessage(String message)
-     * Método set que recibe el String message y lo almacena en el atributo
-     * message.
+     * setMessage(String message) 
+     * Método set que recibe el String message y lo
+     * almacena en el atributo message.
+     *
      * @param message the message to set
      */
     public void setMessage(String message) {
@@ -99,7 +90,6 @@ public class Score implements Serializable {
     /**
      * getScore()
      * Método get que devuelve el Integer almacenada en el atributo score.
-
      * @return the Score
      */
     public Integer getScore() {
@@ -108,8 +98,8 @@ public class Score implements Serializable {
 
     /**
      * setScore(Integer score)
-     * Método set que recibe el Integer score y lo almacena en el atributo score.
-
+     * Método set que recibe el Integer score y lo
+     * almacena en el atributo score.
      * @param score the Score to set
      */
     public void setScore(Integer score) {
@@ -117,9 +107,9 @@ public class Score implements Serializable {
     }
 
     /**
-     * getReservation()
-     * Método get que devuelve el Reservation almacenada en el atributo
-     * reservation.
+     * getReservation() 
+     * Método get que devuelve el Reservation almacenada en el
+     * atributo reservation.
      * @return the reservation
      */
     public Reservation getReservation() {
@@ -127,9 +117,11 @@ public class Score implements Serializable {
     }
 
     /**
-     * setReservation(Reservation reservation )
+
+     * setReservation(Reservation reservation)
      * Método set que recibe el Reservation reservation y lo almacena en el
      * atributo reservation.
+
      * @param reservation the reservation to set
      */
     public void setReservation(Reservation reservation) {
@@ -137,8 +129,9 @@ public class Score implements Serializable {
     }
     
     /**
-     * getIdScore
-     * Método get que devuelve el Integer almacenada en el atributo idScore.
+     * getIdScore()
+     * Método get que devuelve el Integer almacenada en el atributo
+     * idScore.
      * @return the idScore
      */
     public Integer getIdScore() {
@@ -146,8 +139,10 @@ public class Score implements Serializable {
     }
 
     /**
-     * setIdScore(Integer idScore)
-     * Método set que recibe el Integer y lo almacena en el atributo idScore.
+     * setIdScore(Integer idScore) 
+     * Método set que recibe el Integer y lo
+     * almacena en el atributo idScore.
+     *
      * @param idScore the idScore to set
      */
     public void setIdScore(Integer idScore) {

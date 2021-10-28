@@ -13,10 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
- * Client
- * Esta clase implementa FirstCode
- * Es un entity que se almacena con el nombre <H2>client</H2> en la base de
- * datos Contiene los atributos y se maneja un autoincremento para idcliente
+ * Client 
+ * Esta clase implementa FirstCode Es un entity que se almacena con el
+ * nombre <H2>client</H2> en la base de datos Contiene los atributos y se maneja
+ * un autoincremento para idcliente
  *
  * @since 2021-10-25
  * @version 1.0
@@ -25,10 +25,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "client")
 public class Client implements Serializable {
-    
+
     /**
-     * Client()
-     * Constructor vacio de la clase Client.
+     * Client() Constructor vacio de la clase Client.
      */
     public Client() {
     }
@@ -87,8 +86,8 @@ public class Client implements Serializable {
     private List<Message> messages;
 
     /**
-     * getId()
-     * Método get que devuelve el valor del id del cliente
+     * getId() Método get que devuelve el valor del id del cliente
+     *
      * @return El id del cliente
      */
     public Integer getIdClient() {
@@ -96,8 +95,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * setId(Integer id)
-     * Método set para modificar el id del cliente
+     * setId(Integer id) Método set para modificar el id del cliente
+     *
      * @param idClient El id del cliente
      */
     public void setId(Integer idClient) {
@@ -105,8 +104,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * getEmail()
-     * Método get que devuelve el email del cliente
+     * getEmail() Método get que devuelve el email del cliente
+     *
      * @return El email del cliente
      */
     public String getEmail() {
@@ -114,8 +113,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * setEmail(String email)
-     * Método set para modificar el email del cliente
+     * setEmail(String email) Método set para modificar el email del cliente
+     *
      * @param email El email del cliente
      */
     public void setEmail(String email) {
@@ -123,8 +122,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * getPassword()
-     * Método get que devuelve el password del cliente
+     * getPassword() Método get que devuelve el password del cliente
+     *
      * @return El password del cliente
      */
     public String getPassword() {
@@ -132,8 +131,9 @@ public class Client implements Serializable {
     }
 
     /**
-     * setPassword(String password)
-     * Método set para modificar el password del cliente
+     * setPassword(String password) Método set para modificar el password del
+     * cliente
+     *
      * @param password El password del cliente
      */
     public void setPassword(String password) {
@@ -141,8 +141,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * getName()
-     * Método get que devuelve el nombre del cliente
+     * getName() Método get que devuelve el nombre del cliente
+     *
      * @return El nombre del cliente
      */
     public String getName() {
@@ -150,8 +150,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * setName(String name)
-     * Método set para modificar el nombre del cliente
+     * setName(String name) Método set para modificar el nombre del cliente
+     *
      * @param name El nombre del cliente
      */
     public void setName(String name) {
@@ -159,8 +159,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * getAge()
-     * Método get que devuelve la edad del cliente
+     * getAge() Método get que devuelve la edad del cliente
+     *
      * @return La edad del cliente
      */
     public Integer getAge() {
@@ -168,8 +168,8 @@ public class Client implements Serializable {
     }
 
     /**
-     * setAge(Integer age)
-     * Método set para modificar la edad del cliente
+     * setAge(Integer age) Método set para modificar la edad del cliente
+     *
      * @param age La edad del cliente
      */
     public void setAge(Integer age) {
@@ -177,8 +177,9 @@ public class Client implements Serializable {
     }
 
     /**
-     * getReservations()
-     * Método get que devuelve una lista con las reservaciones del cliente
+     * getReservations() Método get que devuelve una lista con las reservaciones
+     * del cliente
+     *
      * @return Las reservaciones del cliente
      */
     public List<Reservation> getReservations() {
@@ -186,8 +187,9 @@ public class Client implements Serializable {
     }
 
     /**
-     * setReservations(List"<"Reservation">" reservations)
-     * Método set para modificar la lista de reservaciones del cliente
+     * setReservations(List"<"Reservation">" reservations) Método set para
+     * modificar la lista de reservaciones del cliente
+     *
      * @param reservations Lista de reservaciones del cliente
      */
     public void setReservations(List<Reservation> reservations) {
@@ -195,8 +197,9 @@ public class Client implements Serializable {
     }
 
     /**
-     * getMessages()
-     * Método get que devuelve una lista con los mensajes del cliente
+     * getMessages() Método get que devuelve una lista con los mensajes del
+     * cliente
+     *
      * @return Los mensajes del cliente
      */
     public List<Message> getMessages() {
@@ -204,8 +207,9 @@ public class Client implements Serializable {
     }
 
     /**
-     * setMessages(List"<"Message">" messages)
-     * Método set para modificar la lista de reservaciones del cliente
+     * setMessages(List"<"Message">" messages) Método set para modificar la
+     * lista de reservaciones del cliente
+     *
      * @param messages Lista de mensajes del cliente
      */
     public void setMessages(List<Message> messages) {

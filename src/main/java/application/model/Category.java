@@ -9,10 +9,10 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.IDENTITY;
 
 /**
- * Category
- * Esta clase implementa FirstCode 
- * Es un entity que se almacena con el nombre <H2>category</H2> en la base de
- * datos Contiene los atributos y se maneja un autoincremento para idCategory
+ * Category.
+ * Esta clase implementa FirstCode Es un entity que se almacena con el
+ * nombre <H2>category</H2> en la base de datos Contiene los atributos y se
+ * maneja un autoincremento para idCategory.
  *
  * @since 2021-10-25
  * @version 1.0
@@ -21,7 +21,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
-    
+
     /**
      * Constructor vacio de la clase Category.
      */
@@ -37,8 +37,8 @@ public class Category implements Serializable {
     private Integer id;
 
     /**
-     * Este atributo corresponde al nombre de cada categoria y a la columna name.
-     * de la tabla Category
+     * Este atributo corresponde al nombre de cada categoria y a la columna
+     * name. de la tabla Category
      */
     @Column(name = "name", length = 45)
     private String name;
@@ -52,16 +52,15 @@ public class Category implements Serializable {
 
     /**
      * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
-     * Category con Quadbike. 
-     * Category posee relación de uno a muchos con Quadbike.
+     * Category con Quadbike. Category posee relación de uno a muchos con
+     * Quadbike.
      */
     @OneToMany(cascade = {PERSIST}, mappedBy = "category")
     @JsonIgnoreProperties({"category"})
     private List<Quadbike> quadbikes;
 
-
     /**
-     * getId()
+     * getId() 
      * Método get que devuelve el valor del id de la categoria
      * @return El id de la categoria
      */
@@ -70,7 +69,7 @@ public class Category implements Serializable {
     }
 
     /**
-     * setId(Integer id)
+     * setId(Integer id) 
      * Método set para modificar el id de la categoria
      * @param id El id de la categoria
      */
@@ -79,7 +78,7 @@ public class Category implements Serializable {
     }
 
     /**
-     * getName()
+     * getName() 
      * Método get que devuelve el nombre de la categoria
      * @return El nombre de la categoria
      */
@@ -88,7 +87,7 @@ public class Category implements Serializable {
     }
 
     /**
-     * setName(String name)
+     * setName(String name) 
      * Método set para modificar el nombre de la categoria
      * @param name El nombre de la categoria
      */
@@ -97,7 +96,7 @@ public class Category implements Serializable {
     }
 
     /**
-     * getDescription()
+     * getDescription() 
      * Método get que devuelve la descripción de la categoria
      * @return La descripción de la categoria
      */
@@ -106,7 +105,7 @@ public class Category implements Serializable {
     }
 
     /**
-     * setDescription(String description)
+     * setDescription(String description) 
      * Método set para modificar la descripción de la categoria
      * @param description La descripción de la categoria
      */
@@ -115,8 +114,9 @@ public class Category implements Serializable {
     }
 
     /**
-     * getQuadbikes()
-     * Método get que devuelve una lista con las cuatrimotos de la categoria
+     * getQuadbikes() 
+     * Método get que devuelve una lista con las cuatrimotos de
+     * la categoria
      * @return Las cuatrimotos de la categoria
      */
     public List<Quadbike> getQuadbikes() {
@@ -124,7 +124,7 @@ public class Category implements Serializable {
     }
 
     /**
-     * setQuadbikes(List"<"Quadbike">" quadbikes)
+     * setQuadbikes(List"<"Quadbike">" quadbikes) 
      * Método set para modificar la lista de cuatrimotos de la categoria
      * @param quadbikes Lista de cuatrimotos de la categoria
      */
