@@ -1,4 +1,3 @@
-
 package application.repository.crud;
 
 import application.model.Quadbike;
@@ -15,5 +14,5 @@ import org.springframework.data.repository.CrudRepository;
  * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
  */
 public interface QuadbikeCrudRepository extends CrudRepository<Quadbike, Integer> {
-
+    
 }

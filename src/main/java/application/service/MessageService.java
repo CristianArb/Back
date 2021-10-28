@@ -1,3 +1,4 @@
+
 package application.service;
 
 import application.model.Message;
@@ -13,83 +14,88 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MessageService {
-
     @Autowired
     private MessageRepository messageRepository;
 
-    public List<Message> getAll() {
-
+    public List<Message> getAll(){
+        
         return messageRepository.getAll();
-
+        
     }
 
     public Optional<Message> getMessage(int messageId) {
         return messageRepository.getMessage(messageId);
     }
 
-    public Message save(Message message) {
-
-        if (message.getIdMessage() == null) {
-
+    public Message save(Message message){
+        
+        if(message.getId()==null){
+            
             return messageRepository.save(message);
-
-        } else {
-
-            var e = messageRepository.getMessage(message.getIdMessage());
-
-            if (e.isEmpty()) {
-
+            
+        }
+        
+        else{
+            
+            var e= messageRepository.getMessage(message.getId());
+            
+            if(e.isEmpty()){
+                
                 return messageRepository.save(message);
-
-            } else {
-
+                
+            }
+            else{
+                
                 return message;
-
+                
             }
         }
     }
 
-    public Message update(Message message) {
-
-        if (message.getIdMessage() != null) {
-
-            var e = messageRepository.getMessage(message.getIdMessage());
-
-            if (!e.isEmpty()) {
-
-                if (message.getMessageText() != null) {
-
+    public Message update(Message message){
+        
+        if(message.getId()!=null){
+            
+            var e= messageRepository.getMessage(message.getId());
+            
+            if(!e.isEmpty()){
+                
+                if(message.getMessageText()!=null){
+                    
                     e.get().setMessageText(message.getMessageText());
-
+             
                 }
-
+                
                 messageRepository.save(e.get());
-
+                
                 return e.get();
-
-            } else {
-
-                return message;
-
+                
             }
-
-        } else {
-
+            
+            else{
+                
+                return message;
+                
+            }
+            
+        }
+        else{
+            
             return message;
-
+            
         }
     }
 
     public boolean deleteMessage(int messageId) {
-
+        
         var aBoolean = getMessage(messageId).map(message -> {
-
+            
             messageRepository.delete(message);
-
+    
             return true;
-
+            
         }).orElse(false);
-
+        
         return aBoolean;
     }
 }

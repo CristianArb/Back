@@ -1,18 +1,9 @@
-
 package application.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import java.sql.Date;
+import javax.persistence.*;
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  *
@@ -25,9 +16,9 @@ public class Reservation implements Serializable{
 
      
     @Id
-    @Column(name = "idReservation")
-    @GeneratedValue( strategy = GenerationType.IDENTITY) 
-    private Integer idReservation;
+    @Column(name = "id")
+    @GeneratedValue( strategy = IDENTITY) 
+    private Integer id;
     
     @Column(name = "startDate")
     private Date startDate;
@@ -39,20 +30,35 @@ public class Reservation implements Serializable{
     private String status = "created";
     
     @ManyToOne
-    @JoinColumn(name="id")
-    @JsonIgnoreProperties("reservations")
+    @JoinColumn(name="quadbike")
+    @JsonIgnoreProperties({"quadbikes","client"})
     private Quadbike quadbike;
             
     @ManyToOne
-    @JoinColumn(name="idClient")
+    @JoinColumn(name="client")
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
+    
     
     @OneToOne
     @JoinColumn(name="score")
     @JsonIgnoreProperties({"reservation"})
     private Score score;    
     
+    
+    /**
+     * @return the idReservation
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param idReservation the idReservation to set
+     */
+    public void setIdReservation(Integer idReservation) {
+        this.id = idReservation;
+    }
 
     /**
      * @return the startDate
@@ -136,20 +142,6 @@ public class Reservation implements Serializable{
      */
     public void setScore(Score score) {
         this.score = score;
-    }
-
-    /**
-     * @return the idReservation
-     */
-    public Integer getIdReservation() {
-        return idReservation;
-    }
-
-    /**
-     * @param idReservation the idReservation to set
-     */
-    public void setIdReservation(Integer idReservation) {
-        this.idReservation = idReservation;
     }
     
 }
