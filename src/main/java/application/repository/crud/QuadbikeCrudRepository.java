@@ -1,4 +1,3 @@
-
 package application.repository.crud;
 
 import application.model.Quadbike;

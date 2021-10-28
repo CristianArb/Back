@@ -1,4 +1,3 @@
-
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -23,6 +22,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Category implements Serializable {
     
     /**
+     * Category()
      * Constructor vacio de la clase Category.
      */
     public Category() {
@@ -37,8 +37,8 @@ public class Category implements Serializable {
     private Integer id;
 
     /**
-     * Este atributo corresponde al nombre de cada categoria y a la columna name.
-     * de la tabla Category
+     * Este atributo corresponde al nombre de cada categoria y a la columna name
+     * de la tabla Category.
      */
     @Column(name = "name", length = 45)
     private String name;

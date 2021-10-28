@@ -87,7 +87,7 @@ public class Client implements Serializable {
     private List<Message> messages;
 
     /**
-     * getId()
+     * getIdClient()
      * Método get que devuelve el valor del id del cliente
      * @return El id del cliente
      */
@@ -96,11 +96,11 @@ public class Client implements Serializable {
     }
 
     /**
-     * setId(Integer id)
+     * setIdClient(Integer id)
      * Método set para modificar el id del cliente
      * @param idClient El id del cliente
      */
-    public void setId(Integer idClient) {
+    public void setIdClient(Integer idClient) {
         this.idClient = idClient;
     }
 

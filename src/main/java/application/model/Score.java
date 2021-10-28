@@ -1,4 +1,3 @@
-
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,7 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
-<<<<<<< HEAD
  * Score
  * Esta clase implementa Firstcode 
  * Es un entity que se almacena con el nombre quadbike en la base de Datos
@@ -24,9 +22,6 @@ import javax.persistence.Table;
  */
 
 @Entity
-
-    
-
 @Table(name = "score")
 public class Score implements Serializable {
 
@@ -35,9 +30,6 @@ public class Score implements Serializable {
      */
     public Score() {
     }
-
-
-
 
     /**
      * Atributo integer que actua como llave principal de la clase Score.
@@ -137,7 +129,7 @@ public class Score implements Serializable {
     }
     
     /**
-     * getIdScore
+     * getIdScore()
      * Método get que devuelve el Integer almacenada en el atributo idScore.
      * @return the idScore
      */
