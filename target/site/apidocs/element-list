@@ -1,6 +1,0 @@
-application
-application.model
-application.repository
-application.repository.crud
-application.service
-application.web

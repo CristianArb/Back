@@ -44,7 +44,9 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
+
     /**
+
      * getClients()
      * Método que devuelve todos los clientes guardados en la base de datos a
      * traves de una petición GET

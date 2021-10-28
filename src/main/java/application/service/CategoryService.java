@@ -70,9 +70,9 @@ public class CategoryService {
         
         else{
             
-            var paux=categoryRepository.getCategory(category.getId());
+            Optional<Category> categoryAux=categoryRepository.getCategory(category.getId());
             
-            if(paux.isEmpty()){
+            if(categoryAux.isEmpty()){
                 
                 return categoryRepository.save(category);
                 
@@ -98,7 +98,7 @@ public class CategoryService {
         
         if(category.getId()!=null){
             
-            var g=categoryRepository.getCategory(category.getId());
+            Optional<Category> g=categoryRepository.getCategory(category.getId());
             
             if(!g.isEmpty()){
                 

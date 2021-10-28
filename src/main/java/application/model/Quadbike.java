@@ -1,4 +1,5 @@
 package application.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
@@ -10,9 +11,9 @@ import javax.persistence.Column;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
+import  javax.persistence.CascadeType;
+import javax.persistence.GenerationType;
 
-import static javax.persistence.CascadeType.PERSIST;
-import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * Quadbike
@@ -40,8 +41,8 @@ public class Quadbike implements Serializable{
      */
     @Id
     @Column(name = "id")
-    @GeneratedValue( strategy = IDENTITY) 
-    private Integer idQuadbike;
+    @GeneratedValue( strategy = GenerationType.IDENTITY) 
+    private Integer id;
     
     /**
      * Atributo String que almacena el nombre de la cuatrimoto.
@@ -81,37 +82,37 @@ public class Quadbike implements Serializable{
     private Category category;
     
     /**
-     * Atributo List"<"Reservation">" que relaciona un entity reservations.
-     * La relación es de uno a muchos.
-     */
-    @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
-    @JsonIgnoreProperties({"quadbike","client"})
-    private List<Reservation> reservations;
-    
-    /**
      * Atributo List"<"Message">" que relaciona un entity messages.
      * La relación es de uno a muchos.
      */
-    @OneToMany(cascade = {PERSIST},mappedBy = "quadbike")
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
     @JsonIgnoreProperties({"quadbike", "client"})
     private List<Message> messages;
-
+    
+    /**
+     * Atributo List"<"Reservation">" que relaciona un entity reservations.
+     * La relación es de uno a muchos.
+     */
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "quadbike")
+    @JsonIgnoreProperties({"quadbike","client"})
+    private List<Reservation> reservations;
+    
     /**
      * getIdQuadbike()
      * Método get que devuelve el valor del id de la cuatrimoto
      * @return El id de la cuatrimoto
      */
-    public Integer getIdQuadbike() {
-        return idQuadbike;
+    public Integer getId() {
+        return id;
     }
 
     /**
      * setIdQuadbike(Integer idQuadbike)
      * Método set para modificar el id de la cuatrimoto
-     * @param idQuadbike El id de la cuatrimoto
+     * @param id El id de la cuatrimoto
      */
-    public void setIdQuadbike(Integer idQuadbike) {
-        this.idQuadbike = idQuadbike;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     /**

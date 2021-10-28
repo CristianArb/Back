@@ -1,6 +1,5 @@
 package application.web;
 
-
 import application.model.Category;
 import application.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 public class CategoryController {
 
     /**
-     * Instancia con @Autowired de la clase servicio CategoryService
+     * Instancia con @Autowired de la clase servicio CategoryService.
      */
     @Autowired
     private CategoryService categoryService;

@@ -23,7 +23,7 @@ import application.repository.QuadbikeRepository;
 public class QuadbikeService {
     
     /**
-     * Instancia con @Autowired de la clase repositorio CategoryRepository
+     * Instancia con @Autowired de la clase repositorio CategoryRepository.
      */
     @Autowired
     private QuadbikeRepository quadbikeRepository;
@@ -63,7 +63,7 @@ public class QuadbikeService {
      */
     public Quadbike save(Quadbike quadbike){
     
-        if(quadbike.getIdQuadbike()==null){
+        if(quadbike.getId()==null){
             
             return quadbikeRepository.save(quadbike);
             
@@ -71,11 +71,11 @@ public class QuadbikeService {
         
         else{
         
-            var quadbikeAux= quadbikeRepository.getQuadbike(
-                    quadbike.getIdQuadbike()
+            Optional<Quadbike> quadbikeAux= quadbikeRepository.getQuadbike(
+                    quadbike.getId()
             );
             
-            if(!quadbikeAux.isPresent()){
+            if(quadbikeAux.isEmpty()){
                 
                 return quadbikeRepository.save(quadbike);
                 
@@ -100,9 +100,9 @@ public class QuadbikeService {
      */
     public Quadbike update(Quadbike quadbike){
         
-        if(quadbike.getIdQuadbike()!=null){
+        if(quadbike.getId()!=null){
             
-            var e=quadbikeRepository.getQuadbike(quadbike.getIdQuadbike());
+            Optional<Quadbike> e=quadbikeRepository.getQuadbike(quadbike.getId());
             
             if(!e.isEmpty()){
                 

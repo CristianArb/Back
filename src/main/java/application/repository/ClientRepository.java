@@ -21,7 +21,7 @@ import org.springframework.stereotype.Repository;
 public class ClientRepository {
     
     /**
-     * Instancia con @Autowired de la interface ClientCrudRepository
+     * Instancia con @Autowired de la interface ClientCrudRepository.
      */
     @Autowired
     private ClientCrudRepository clientCrudRepository;

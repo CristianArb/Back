@@ -1,4 +1,3 @@
-
 package application.service;
 
 import application.model.Client;
@@ -21,9 +20,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ClientService {
-    
+
+
     /**
-     * Instancia con @Autowired de la clase repositorio ClientRepository
+     * Instancia con @Autowired de la clase repositorio ClientRepository.
      */
     @Autowired
     private ClientRepository clientRepository;
@@ -33,10 +33,12 @@ public class ClientService {
      * Método que devuelve todos los clientes guardados en la base de datos
      * @return Lista con todos los clientes
      */
-    public List<Client> getAll(){
-         
+
+    public List<Client> getAll() {
+
+
         return clientRepository.getAll();
-        
+
     }
     
     /**
@@ -47,9 +49,9 @@ public class ClientService {
      * @return Cliente con el id ingresado
      */
     public Optional<Client> getClient(int clientId) {
-          
+
         return clientRepository.getCliente(clientId);
-        
+
     }
 
     /**
@@ -61,28 +63,24 @@ public class ClientService {
      * @param client Cliente que se va a guardar
      * @return El cliente ingresado
      */
-    public Client save(Client client){
-        
-        if(client.getIdClient()==null){
-            
+    public Client save(Client client) {
+
+        if (client.getIdClient() == null) {
+
             return clientRepository.save(client);
-            
-        }
-        
-        else{
-            
-            var e= clientRepository.getCliente(client.getIdClient());
-            
-            if(e.isEmpty()){
-                
+
+        } else {
+
+            Optional<Client> clientAux = clientRepository.getCliente(client.getIdClient());
+
+            if (clientAux.isEmpty()) {
+
                 return clientRepository.save(client);
-                
-            }
-            
-            else{
-                
+
+            } else {
+
                 return client;
-                
+
             }
         }
     }
@@ -96,45 +94,42 @@ public class ClientService {
      * @param client Cliente que se va a actualizar
      * @return El cliente ingresado
      */
+
     public Client update(Client client){
         
         if(client.getIdClient()!=null){
             
-            var e= clientRepository.getCliente(client.getIdClient());
+            Optional<Client> e= clientRepository.getCliente(client.getIdClient());
             
             if(!e.isEmpty()){
                 
                 if(client.getName()!=null){
-                    
+
                     e.get().setName(client.getName());
-                    
+
                 }
-                
-                if(client.getAge()!=null){
-                    
+
+                if (client.getAge() != null) {
+
                     e.get().setAge(client.getAge());
-                    
+
                 }
-                if(client.getPassword()!=null){
-                    
+                if (client.getPassword() != null) {
+
                     e.get().setPassword(client.getPassword());
                 }
                 clientRepository.save(e.get());
-                
+
                 return e.get();
-            }
-            
-            else{
-                
+            } else {
+
                 return client;
             }
-            
-        }
-        
-        else{
-            
+
+        } else {
+
             return client;
-            
+
         }
     }
 
@@ -147,15 +142,15 @@ public class ClientService {
      * @return Un true o false dependiendo de si se booro el cliente
      */
     public boolean deleteClient(int clientId) {
-        
+
         var aBoolean = getClient(clientId).map(client -> {
-            
+
             clientRepository.delete(client);
-            
+
             return true;
-            
+
         }).orElse(false);
-        
+
         return aBoolean;
     }
 }

@@ -3,11 +3,11 @@ package application.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.List;
-import static javax.persistence.CascadeType.PERSIST;
+import  javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -37,7 +37,7 @@ public class Client implements Serializable {
      */
     @Id
     @Column(name = "idClient")
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
 
     /**
@@ -70,24 +70,24 @@ public class Client implements Serializable {
 
     /**
      * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
+     * Client con Message. Client posee relación de uno a muchos con Message.
+     */
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties({"client"})
+    private List<Message> messages;
+    
+    /**
+     * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
      * Client con Reservation. Client posee relación de uno a muchos con
      * Reservation.
      */
-    @OneToMany(cascade = {PERSIST}, mappedBy = "client")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties({"client"})
     private List<Reservation> reservations;
 
     /**
-     * Este atrubuto corresponde a la llave foranea que relaciona a la tabla
-     * Client con Message. Client posee relación de uno a muchos con Message.
-     */
-    @OneToMany(cascade = {PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties({"client"})
-    private List<Message> messages;
-
-    /**
-     * getId() Método get que devuelve el valor del id del cliente
-     *
+     * getIdClient()
+     * Método get que devuelve el valor del id del cliente
      * @return El id del cliente
      */
     public Integer getIdClient() {
@@ -95,11 +95,11 @@ public class Client implements Serializable {
     }
 
     /**
-     * setId(Integer id) Método set para modificar el id del cliente
-     *
+     * setIdClient(Integer id)
+     * Método set para modificar el id del cliente
      * @param idClient El id del cliente
      */
-    public void setId(Integer idClient) {
+    public void setIdClient(Integer idClient) {
         this.idClient = idClient;
     }
 

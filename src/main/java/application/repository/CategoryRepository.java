@@ -21,7 +21,7 @@ import application.repository.crud.CategoryCrudRepository;
 public class CategoryRepository {
 
     /**
-     * Instancia con @Autowired de la interface CategoryCrudRepository
+     * Instancia con @Autowired de la interface CategoryCrudRepository.
      */
     @Autowired
     private CategoryCrudRepository categoryCrudRepository;
@@ -31,8 +31,8 @@ public class CategoryRepository {
      * Método que devuelve todas las categorias guardadas en la base de datos
      * @return Lista con todas las categorias
      */
-    public List<Category> getAll() {
-
+     public List<Category> getAll(){
+        
         return (List<Category>) categoryCrudRepository.findAll();
 
     }
@@ -44,8 +44,10 @@ public class CategoryRepository {
      * @param id EL id de la categoria que se quiere buscar
      * @return Categoria con el id ingresado
      */
-    public Optional<Category> getCategory(int id) {
 
+
+    public Optional<Category>getCategory(int id){
+        
         return categoryCrudRepository.findById(id);
 
     }
@@ -61,6 +63,8 @@ public class CategoryRepository {
         return categoryCrudRepository.save(category);
 
     }
+
+    
 
     /**
      * delete(Category category)

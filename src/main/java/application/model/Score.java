@@ -123,8 +123,12 @@ public class Score implements Serializable {
 
     /**
      * getIdScore()
+<<<<<<< HEAD
      * Método get que devuelve el Integer almacenada en el atributo
      * idScore.
+=======
+     * Método get que devuelve el Integer almacenada en el atributo idScore.
+>>>>>>> 1137780b68a958a8dd19af37f82a5cdd39e9e216
      * @return the idScore
      */
     public Integer getIdScore() {

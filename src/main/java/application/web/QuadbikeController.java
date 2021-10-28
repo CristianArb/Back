@@ -1,6 +1,5 @@
 package application.web;
 
-
 import java.util.List;
 import java.util.Optional;
 import application.model.Quadbike;

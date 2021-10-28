@@ -21,7 +21,7 @@ import application.repository.crud.QuadbikeCrudRepository;
 public class QuadbikeRepository{
     
     /**
-     * Instancia con @Autowired de la interface QuadbikeCrudRepository
+     * Instancia con @Autowired de la interface QuadbikeCrudRepository.
      */
     @Autowired
     private QuadbikeCrudRepository quadbikeCrudRepository;
