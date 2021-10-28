@@ -1,4 +1,3 @@
-
 package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -133,4 +132,3 @@ public class Category implements Serializable {
     }
 
 }
-

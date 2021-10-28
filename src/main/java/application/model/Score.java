@@ -2,28 +2,18 @@ package application.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import static javax.persistence.GenerationType.IDENTITY;
+
 /**
  * Score
  * Esta clase es un entity que se almacena con el nombre quadbike en la
  * base de Datos Contiene los atributos y se maneja un autoincremento para id
- *
  * @since 27-10-2021
  * @version 1.0
- * @author Cristian Peña, Camilo Muñoz & Andres Bonilla
+ * @author Grupo 0.
  */
-
 @Entity
-
-    
-
 @Table(name = "score")
 public class Score implements Serializable {
 
@@ -38,22 +28,23 @@ public class Score implements Serializable {
      */
     @Id
     @Column(name = "idScore")
-    @GeneratedValue( strategy = GenerationType.IDENTITY) 
-    private Integer idScore; 
-    
+    @GeneratedValue(strategy = IDENTITY)
+    private Integer idScore;
+
     /**
      * Atributo Integer que almacena el puntaje de la reservación asociada.
      * Precision de 1 digito con escala de 0 decimales.
-     */ 
-    @Column(name = "score",precision = 1, scale = 0)
+     */
+    @Column(name = "score", precision = 1, scale = 0)
     private Integer score;
-    
+
     /**
-     * Atributo String que almacena el mensaje del puntaje.
-     * Longitud de 250 caracteres.
+     * Atributo String que almacena el mensaje del puntaje. Longitud de 250
+     * caracteres.
      */
     @Column(name = "message", length = 250)
     private String message;
+
     
     /**
      * Atributo Reservation que relaciona el entity Score con un entity reservation.
@@ -88,8 +79,10 @@ public class Score implements Serializable {
     }
 
     /**
-     * getScore()
-     * Método get que devuelve el Integer almacenada en el atributo score.
+
+     * getScore() 
+     * Método get que devuelve el Integer almacenada en el atributo
+     * score.
      * @return the Score
      */
     public Integer getScore() {
@@ -97,6 +90,7 @@ public class Score implements Serializable {
     }
 
     /**
+
      * setScore(Integer score)
      * Método set que recibe el Integer score y lo
      * almacena en el atributo score.
@@ -117,7 +111,6 @@ public class Score implements Serializable {
     }
 
     /**
-
      * setReservation(Reservation reservation)
      * Método set que recibe el Reservation reservation y lo almacena en el
      * atributo reservation.
@@ -127,7 +120,7 @@ public class Score implements Serializable {
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
     }
-    
+
     /**
      * getIdScore()
      * Método get que devuelve el Integer almacenada en el atributo
@@ -143,7 +136,6 @@ public class Score implements Serializable {
      * Método set que recibe el Integer y lo
      * almacena en el atributo idScore.
      *
-     * @param idScore the idScore to set
      */
     public void setIdScore(Integer idScore) {
         this.idScore = idScore;
