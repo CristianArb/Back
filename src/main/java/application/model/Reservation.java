@@ -1,7 +1,7 @@
 package application.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.*;
 import  javax.persistence.GenerationType;
 
