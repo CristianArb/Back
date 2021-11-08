@@ -1,11 +1,15 @@
 package application.repository;
 
+import application.model.Client;
 import java.util.List;
 import java.util.Optional;
 import application.model.Reservation;
+import application.reports.ContadorClientes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import application.repository.crud.ReservationCrudRepository;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * ReservationRepository
@@ -71,6 +75,45 @@ public class ReservationRepository{
         
         reservationCrudRepository.delete(reservation);
         
+    }
+    
+    /**
+     * getReservationByStatus
+     * Método que devuelve una lista con todas la reservaciones que coincidan
+     * con el status especificado
+     * @param status El status de las reservaciones a consultar
+     * @return Lista de reservaciones con el status especificado
+     */
+    public List<Reservation> getReservationByStatus(String status) {
+        return reservationCrudRepository.findAllByStatus(status);
+    }
+
+    /**
+     * getReservationPeriod
+     * Método que devuelve una lista con todas las reservaciones que este entre
+     * dos fechas
+     * @param a Fecha inicial del intervalo de tiempo
+     * @param b Fecha final del intervalo de tiempo
+     * @return Lista de reservaciones que esten en el intervalo de tiempo
+     */
+    public List<Reservation> getReservationPeriod(Date a, Date b) {
+        return reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(a, b);
+    }
+
+    /**
+     * getTopClients
+     * Método que devulve una lista de objetos ContadorClientes, la cual
+     * representa el top de clientes con mas reservaciones. Cada objeto
+     * ContadorClientes almacena el cliente y su número de reservaciones
+     * @return Lista con los clientes con mas reserva ordenados de mayor a menor
+     */
+    public List<ContadorClientes> getTopClients() {
+        List<ContadorClientes> res = new ArrayList<>();
+        List<Object[]> report = reservationCrudRepository.countTotalReservationByClient();
+        for (int i = 0; i < report.size(); i++) {
+            res.add(new ContadorClientes((Long) report.get(i)[1], (Client) report.get(i)[0]));
+        }
+        return res;
     }
     
 }

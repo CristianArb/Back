@@ -2,6 +2,8 @@ package application.web;
 
 
 import application.model.Reservation;
+import application.reports.ContadorClientes;
+import application.reports.StatusReservas;
 import application.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -109,4 +111,42 @@ public class ReservationController {
         return reservationService.deleteReservation( idReservation );
         
     }
+    
+    /**
+     * getReservationStatusReport()
+     * Función que obtiene el status de la reserva de reservationService
+     * @return Status de la Reserva
+     */
+    @GetMapping("/report-status")
+    public StatusReservas getReservationStatusReport(){
+        
+        return reservationService.getReservationsStatusReport();
+        
+    }
+    
+    /**
+     * getReservationReportDates()
+     * Función que obtiene reporte de las reservas hecha en un intervalo de 
+     * tiempo de reservationService
+     * @param dateOne, fecha inicial 
+     * @param dateTwo, fecha final 
+     * @return Lista con las reservas hechas en un intervalo de tiempo
+     */
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable ("dateOne") String dateOne, @PathVariable ("dateTwo") String dateTwo) {
+        return reservationService.getReservationPeriod(dateOne, dateTwo);
+    }
+    
+    /**
+     * getReservationReportClients()
+     * Función que obtiene reporte de clientes que mas dinero le han dejado 
+     * a la compañia dereservationService
+     * @return Lista con los clientes que mas dinero le han dejado a la 
+     * compañia
+     */
+    @GetMapping("/report-clients")
+    public List<ContadorClientes> getReservationsReportsClients() {
+        return reservationService.getTopClientes();
+    }
+    
 }

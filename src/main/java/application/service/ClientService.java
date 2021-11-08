@@ -118,6 +118,10 @@ public class ClientService {
 
                     e.get().setPassword(client.getPassword());
                 }
+                
+                if (client.getEmail() != null) {
+                    e.get().setEmail(client.getEmail());
+                }
                 clientRepository.save(e.get());
 
                 return e.get();

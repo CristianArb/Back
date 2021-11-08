@@ -1,7 +1,13 @@
 package application.service;
 
 import application.model.Reservation;
+import application.reports.ContadorClientes;
+import application.reports.StatusReservas;
 import application.repository.ReservationRepository;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -20,9 +26,6 @@ import java.util.Optional;
  */
 @Service
 public class ReservationService {
-
-    
-
     
     /**
      * Instancia con @Autowired de la clase Reservation ReservationRepository.
@@ -154,4 +157,57 @@ public class ReservationService {
         return aBoolean;
         
     }
+    
+    /**
+     * getReservationsStatusReport
+     * Método que devuelve el objeto StatusReservas con la información de la
+     * cantidad de reservas completadas y canceladas
+     * @return Objeto StatisReservas con la información de las reservas
+     * completas y canceladas
+     */
+    public StatusReservas getReservationsStatusReport (){
+       List<Reservation>completed = reservationRepository.getReservationByStatus("completed");
+       List<Reservation>cancelled = reservationRepository.getReservationByStatus("cancelled");
+       return new StatusReservas(completed.size(), cancelled.size());
+    }
+    
+    /**
+     * getReservationPeriod
+     * Método que recibe y parsea dos fechas y que devuelve una lista con las
+     * reservaciones que estan en el intervalo de tiempo de las 2 fechas
+     * @param dateA Fecha inicial del periodo de tiempo
+     * @param dateB Fecha final del periodo de tiempo
+     * @return Lista con las reservaciones que estan entre las 2 fechas
+     */
+    public List<Reservation> getReservationPeriod(String dateA, String dateB) {
+        SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+        Date aDate = new Date();
+        Date bDate = new Date();
+        
+        try{
+            aDate = parser.parse(dateA);
+            bDate = parser.parse(dateB);
+        } catch(ParseException evt) {
+            evt.printStackTrace();
+        }
+        
+        if(aDate.before(bDate)) {
+            return reservationRepository.getReservationPeriod(aDate, bDate);
+        } else {
+            return new ArrayList<>();
+        }
+    }
+    
+    /**
+     * getTopClientes
+     * Método que devuelve una lista de ContadorClientes con el top de los
+     * clientes con el mayor número de reservas ordenados de mayor a menor
+     * 
+     * @return Lista top de los clientes con mas reservaciones ordenados
+     * en orden descendente
+     */
+    public List<ContadorClientes> getTopClientes() {
+        return reservationRepository.getTopClients();
+    }
+    
 }
